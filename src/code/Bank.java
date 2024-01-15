@@ -7,8 +7,8 @@
  * @version 1.0
  */
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Bank {
@@ -90,23 +90,28 @@ public class Bank {
         this.bankAccounts.get(accountNumber).depositMoneyCad(amountCdn);
     }
 
+
     /**
      * Iterates through the bank's accounts,
      * printing customer information such as
      * the last name, account balance, and account number.
      */
-    public void printAllCustomerData()
-    {
-        final Iterator<String> it;
-        it = this.bankAccounts.keySet().iterator();
+    public void printAllCustomerData() {
+        final Set<Map.Entry<String, BankAccount>> entrySet;
+        entrySet= this.bankAccounts.entrySet();
 
-        while (it.hasNext())
-        {
+        final Iterator<Map.Entry<String, BankAccount>> it;
+        it = entrySet.iterator();
+
+        while (it.hasNext()) {
+            final Map.Entry<String, BankAccount> theNextKey;
+            theNextKey = it.next();
+
             final String accountNumber;
-            accountNumber= it.next();
+            accountNumber = theNextKey.getKey();
 
             final BankAccount account;
-            account = this.bankAccounts.get(accountNumber);
+            account = theNextKey.getValue();
 
             System.out.printf("Customer %s has $%.2f in account #%s\n",
                     account.getMemberLastName(), account.getBalanceCdn(), accountNumber);
