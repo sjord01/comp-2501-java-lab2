@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
 
 public class Bank {
     private final String                   bankName;
@@ -97,21 +100,35 @@ public class Bank {
      * the last name, account balance, and account number.
      */
     public void printAllCustomerData() {
-        final Set<Map.Entry<String, BankAccount>> entrySet;
-        entrySet= this.bankAccounts.entrySet();
+        final Set<Map.Entry<String, BankAccount>> accountNumbersEntries;
+        accountNumbersEntries = this.bankAccounts.entrySet();
 
-        final Iterator<Map.Entry<String, BankAccount>> it;
-        it = entrySet.iterator();
+        // Create a list to store the account numbers
+        // The new list will be used to return the values
+        // alphabetically according to the 'accountNumbers'
+        final List<String> sortedAccountNumbersEntries;
+        sortedAccountNumbersEntries = new ArrayList<>();
 
-        while (it.hasNext()) {
-            final Map.Entry<String, BankAccount> theNextKey;
-            theNextKey = it.next();
+        // Populate the new list with account numbers
+        for (Map.Entry<String, BankAccount> entry : accountNumbersEntries)
+        {
+            sortedAccountNumbersEntries.add(entry.getKey());
+        }
 
+        // Now we sort the new list alphabetically
+        Collections.sort(sortedAccountNumbersEntries);
+
+        // Create an iterator for the sorted account numbers list
+        final Iterator<String> it;
+        it = sortedAccountNumbersEntries.iterator();
+
+        while (it.hasNext())
+        {
             final String accountNumber;
-            accountNumber = theNextKey.getKey();
+            accountNumber = it.next();
 
             final BankAccount account;
-            account = theNextKey.getValue();
+            account = this.bankAccounts.get(accountNumber);
 
             System.out.printf("Customer %s has $%.2f in account #%s\n",
                     account.getMemberLastName(), account.getBalanceCdn(), accountNumber);

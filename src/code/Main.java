@@ -30,5 +30,10 @@ public class Main {
         bank.depositTo(22.22, "def222");
         bank.getAccount("abc111").transferMoneyCad(5.00, bank.getAccount("ghi333"));
         bank.printAllCustomerData();
+
+        System.out.println("---");
+
+        Calendar calendar = new Calendar();
+        calendar.printCalendar();
     }
 }
