@@ -1,60 +1,45 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
-public class Calendar
-{
-    private final ArrayList<Integer>        years;
-    private final String[]                  months;
-    private final ArrayList<Integer>        days;
-    private final HashMap<Integer, Date>    dates;
+public class Calendar {
+    private ArrayList<Integer> years;
+    private String[] months;
+    private ArrayList<Integer> days;
+    private HashMap<Integer, Date> dates;
 
-    public Calendar()
-    {
-        years   = new ArrayList<>();
-        months  = new String[]{"January", "February", "March",
-                                "April", "May", "June",
-                                "July", "August", "September",
-                                "October", "November", "December"};
-        days    = new ArrayList<>();
-        dates   = new HashMap<>();
-
-        // Initialize years ArrayList from 1910 to 2025
-        for (int i = 1910; i <= 2025; i++)
-        {
+    public Calendar() {
+        years = new ArrayList<>();
+        for (int i = 1910; i <= 2025; i++) {
             years.add(i);
         }
 
-        // Initialize days ArrayList from 1 to 30
-        for (int i = 1; i <= 30; i++)
-        {
+        months = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+        days = new ArrayList<>();
+        for (int i = 1; i <= 30; i++) {
             days.add(i);
         }
 
-        // Populate the dates HashMap using nested loops
+        dates = new HashMap<>();
         int key = 1;
         for (int year : years) {
             for (String month : months) {
-                for (int day : days) {
-                    dates.put(key, new Date(year, getMonthIndex(month) + 1, day));
+                Iterator<Integer> iterator = days.iterator();
+                while (iterator.hasNext()) {
+                    int day = iterator.next();
+                    Date date = new Date(year, month, day);
+                    dates.put(key, date);
                     key++;
                 }
             }
         }
     }
 
-    private int getMonthIndex(String month) {
-        for (int i = 0; i < months.length; i++) {
-            if (months[i].equals(month)) {
-                return i;
-            }
-        }
-        return -1; // Month not found
-    }
-
-    public void printCalendar()
-    {
+    public void printCalendar() {
         for (int key : dates.keySet()) {
-            System.out.println(key + ": " + dates.get(key).getYyMmDd());
+            Date date = dates.get(key);
+            System.out.println(key + ": " + date.getDate());
         }
     }
 }
