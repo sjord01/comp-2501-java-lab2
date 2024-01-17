@@ -10,9 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
 
 public class Bank {
     private final String                   bankName;
@@ -23,8 +20,8 @@ public class Bank {
      */
     public Bank(final String bankName)
     {
-        this.bankName = bankName;
-        this.bankAccounts = new HashMap<>();
+        this.bankName       = bankName;
+        this.bankAccounts   = new HashMap<>();
     }
 
     /**
@@ -76,7 +73,8 @@ public class Bank {
     public double getTotalAccountsBalance()
     {
         double totalCdn = 0.0;
-        for (BankAccount account : this.bankAccounts.values()) {
+        for (BankAccount account : this.bankAccounts.values())
+        {
             totalCdn += account.getBalanceCdn();
         }
         return totalCdn;
@@ -99,39 +97,31 @@ public class Bank {
      * printing customer information such as
      * the last name, account balance, and account number.
      */
-    public void printAllCustomerData() {
-        final Set<Map.Entry<String, BankAccount>> accountNumbersEntries;
-        accountNumbersEntries = this.bankAccounts.entrySet();
+    public void printAllCustomerData()
+    {
+        final Set<String> keys;
+        keys = bankAccounts.keySet();
 
-        // Create a list to store the account numbers
-        // The new list will be used to return the values
-        // alphabetically according to the 'accountNumbers'
-        final List<String> sortedAccountNumbersEntries;
-        sortedAccountNumbersEntries = new ArrayList<>();
-
-        // Populate the new list with account numbers
-        for (Map.Entry<String, BankAccount> entry : accountNumbersEntries)
-        {
-            sortedAccountNumbersEntries.add(entry.getKey());
-        }
-
-        // Now we sort the new list alphabetically
-        Collections.sort(sortedAccountNumbersEntries);
-
-        // Create an iterator for the sorted account numbers list
         final Iterator<String> it;
-        it = sortedAccountNumbersEntries.iterator();
+        it = keys.iterator();
 
         while (it.hasNext())
         {
-            final String accountNumber;
-            accountNumber = it.next();
+            final String theNextKey;
+            theNextKey = it.next();
 
             final BankAccount account;
-            account = this.bankAccounts.get(accountNumber);
+            account = this.bankAccounts.get(theNextKey);
 
-            System.out.printf("Customer %s has $%.2f in account #%s\n",
-                    account.getMemberLastName(), account.getBalanceCdn(), accountNumber);
+            if (account != null && theNextKey != null && !theNextKey.isBlank())
+            {
+                if (    account.getMemberLastName() != null && !account.getMemberLastName().isBlank()
+                        && account.getBalanceCdn() >= 0)
+                {
+                    System.out.printf(  "Customer %s has $%.2f in account #%s\n",
+                                        account.getMemberLastName(), account.getBalanceCdn(), theNextKey);
+                }
+            }
         }
 
         System.out.printf("Total bank balance in all accounts for %s is %.2f\n",

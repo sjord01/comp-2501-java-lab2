@@ -17,7 +17,7 @@ public class BankAccount
      * @param accountNumber unique bank account number of person
      * @param lastName last name of the bank account owner
      */
-    public BankAccount(final double balanceCad,
+    public BankAccount(final Double balanceCad,
                        final String accountNumber,
                        final String lastName)
     {

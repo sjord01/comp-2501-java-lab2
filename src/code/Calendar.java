@@ -68,8 +68,10 @@ public class Calendar {
      * Prints out dates from January 1, 1910 to December 30, 2025;
      * Assumption is that each month has 30 days
      */
-    public void printCalendar() {
-        for (int key : dates.keySet()) {
+    public void printCalendar()
+    {
+        for (int key : dates.keySet())
+        {
             Date date = dates.get(key);
             System.out.println(key + ": " + date.getDate());
         }
