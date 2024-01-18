@@ -4,7 +4,8 @@
  * @author vindy, marius, sam ordonez
  * @version 1.0
  */
-public class Date {
+public class Date
+{
     private final int       year;
     private final String    month;
     private final int       day;

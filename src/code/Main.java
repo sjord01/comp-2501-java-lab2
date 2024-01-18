@@ -6,7 +6,8 @@
  * @author vindy, marius, sam ordonez
  * @version 1.0
  */
-public class Main {
+public class Main
+{
     public static void main(final String[] args)
     {
         final Bank bank;

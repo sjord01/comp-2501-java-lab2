@@ -11,7 +11,8 @@ import java.util.Map;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Bank {
+public class Bank
+{
     private final String                   bankName;
     private final Map<String, BankAccount> bankAccounts;
 
