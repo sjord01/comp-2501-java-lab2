@@ -73,10 +73,10 @@ public class Bank
      */
     public double getTotalAccountsBalance()
     {
-        // if value is ! negative
         double totalCdn = 0.0;
         for (BankAccount account : this.bankAccounts.values())
         {
+            //Disregard bank accounts with negative balance
             if (account.getBalanceCdn() >=0) {
                 totalCdn += account.getBalanceCdn();
             }
@@ -103,8 +103,8 @@ public class Bank
      */
     public void printAllCustomerData()
     {
-        final Set<String> keys;
-        keys = bankAccounts.keySet();           //bankAccounts -> Hashmap <Keys - acccountnumber, Value -> BankAccount object)
+        final Set<String> keys;                 //Set<K> keySet() returns a set view of the key maps
+        keys = bankAccounts.keySet();
 
         final Iterator<String> it;
         it = keys.iterator();
@@ -118,7 +118,7 @@ public class Bank
 
             account = this.bankAccounts.get(theNextKey);
 
-            if (account != null && theNextKey != null && !theNextKey.isBlank())
+            if (account != null)
             {
                 if (    account.getMemberLastName() != null && !account.getMemberLastName().isBlank()
                         && account.getBalanceCdn() >= 0)
