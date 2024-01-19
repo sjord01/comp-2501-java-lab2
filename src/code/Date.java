@@ -1,7 +1,7 @@
 /**
  * A Date program that tells the month, day, and year of a specific date
  *
- * @author vindy, marius, sam ordonez
+ * @author vandy, marius, sam ordonez
  * @version 1.0
  */
 public class Date

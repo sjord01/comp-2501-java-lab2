@@ -1,7 +1,7 @@
 /**
  * A bank account program with 'deposit', 'withdraw', and 'transfer' functionalities
  *
- * @author vindy, marius, sam ordonez
+ * @author vandy, marius, sam ordonez
  * @version 1.0
  */
 
@@ -17,7 +17,7 @@ public class BankAccount
      * @param accountNumber unique bank account number of person
      * @param lastName last name of the bank account owner
      */
-    public BankAccount(final Double balanceCad,
+    public BankAccount(double balanceCad,
                        final String accountNumber,
                        final String lastName)
     {

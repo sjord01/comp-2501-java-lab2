@@ -3,7 +3,7 @@
  * representing its own bank name, list of unique account numbers,
  * account member names, and account monetary balance
  *
- * @author vindy, marius, sam ordonez
+ * @author vandy, marius, sam ordonez
  * @version 1.0
  */
 import java.util.HashMap;
@@ -73,10 +73,13 @@ public class Bank
      */
     public double getTotalAccountsBalance()
     {
+        // if value is ! negative
         double totalCdn = 0.0;
         for (BankAccount account : this.bankAccounts.values())
         {
-            totalCdn += account.getBalanceCdn();
+            if (account.getBalanceCdn() >=0) {
+                totalCdn += account.getBalanceCdn();
+            }
         }
         return totalCdn;
     }
@@ -101,7 +104,7 @@ public class Bank
     public void printAllCustomerData()
     {
         final Set<String> keys;
-        keys = bankAccounts.keySet();
+        keys = bankAccounts.keySet();           //bankAccounts -> Hashmap <Keys - acccountnumber, Value -> BankAccount object)
 
         final Iterator<String> it;
         it = keys.iterator();
@@ -112,6 +115,7 @@ public class Bank
             theNextKey = it.next();
 
             final BankAccount account;
+
             account = this.bankAccounts.get(theNextKey);
 
             if (account != null && theNextKey != null && !theNextKey.isBlank())

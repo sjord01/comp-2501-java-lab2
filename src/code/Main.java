@@ -3,7 +3,7 @@
  * It also prints out dates from January 1, 1910, to December 30, 2025;
  * assumption is that each month will have 30 days
  *
- * @author vindy, marius, sam ordonez
+ * @author vandy, marius, sam ordonez
  * @version 1.0
  */
 public class Main
@@ -50,7 +50,7 @@ public class Main
                                     "         ");
 
         //Test if Bank program catches null or empty data
-        account7 = new BankAccount(-100.99,
+        account7 = new BankAccount(0.0,
                                 "xyz123",
                                     "musk");
 
