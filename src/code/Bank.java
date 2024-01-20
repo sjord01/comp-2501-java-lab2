@@ -1,3 +1,9 @@
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.Set;
+
 /**
  * A representation of a bank in a simple banking system;
  * representing its own bank name, list of unique account numbers,
@@ -6,11 +12,6 @@
  * @author vandna saxena, marius guerra, sam ordonez
  * @version 1.0
  */
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Iterator;
-import java.util.Set;
-
 public class Bank
 {
     private final String                   bankName;
@@ -73,11 +74,13 @@ public class Bank
      */
     public double getTotalAccountsBalance()
     {
-        double totalCdn = 0.0;
-        for (BankAccount account : this.bankAccounts.values())
+        double totalCdn;
+        totalCdn = 0.0;
+
+        for(BankAccount account : this.bankAccounts.values())
         {
             //Disregard bank accounts with negative balance
-            if (account.getBalanceCdn() >=0)
+            if(account.getBalanceCdn() >= 0)
             {
                 totalCdn += account.getBalanceCdn();
             }
@@ -105,19 +108,18 @@ public class Bank
      */
     public void printAllCustomerData()
     {
-        final Set<String> keys;                 //Set<K> keySet() returns a set view of the key maps
-        keys = bankAccounts.keySet();
-
+        final Set<String> keys;
         final Iterator<String> it;
+
+        keys = bankAccounts.keySet();
         it = keys.iterator();
 
         while (it.hasNext())
         {
             final String theNextKey;
-            theNextKey = it.next();
-
             final BankAccount account;
 
+            theNextKey = it.next();
             account = this.bankAccounts.get(theNextKey);
 
             if (account != null)
