@@ -1,4 +1,3 @@
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
@@ -77,7 +76,7 @@ public class Bank
         double totalCdn;
         totalCdn = 0.0;
 
-        for(BankAccount account : this.bankAccounts.values())
+        for(final BankAccount account : this.bankAccounts.values())
         {
             //Disregard bank accounts with negative balance
             if(account.getBalanceCdn() >= 0)
@@ -108,27 +107,27 @@ public class Bank
      */
     public void printAllCustomerData()
     {
-        final Set<String> keys;
-        final Iterator<String> it;
+        final Set<String>       keys;
+        final Iterator<String>  it;
 
-        keys = bankAccounts.keySet();
-        it = keys.iterator();
+        keys    = bankAccounts.keySet();
+        it      = keys.iterator();
 
-        while (it.hasNext())
+        while(it.hasNext())
         {
-            final String theNextKey;
-            final BankAccount account;
+            final String        theNextKey;
+            final BankAccount   account;
 
-            theNextKey = it.next();
-            account = this.bankAccounts.get(theNextKey);
+            theNextKey  = it.next();
+            account     = this.bankAccounts.get(theNextKey);
 
-            if (account != null)
+            if(account != null)
             {
-                if (    account.getMemberLastName() != null && !account.getMemberLastName().isBlank()
+                if(account.getMemberLastName() != null && !account.getMemberLastName().isBlank()
                         && account.getBalanceCdn() >= 0)
                 {
-                    System.out.printf(  "Customer %s has $%.2f in account #%s\n",
-                                        account.getMemberLastName(), account.getBalanceCdn(), theNextKey);
+                    System.out.printf("Customer %s has $%.2f in account #%s\n",
+                            account.getMemberLastName(), account.getBalanceCdn(), theNextKey);
                 }
             }
         }

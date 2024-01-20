@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
 /**
  * A Calendar program that contains and prints out
  * months, days, and years from 1910 to 2025;
@@ -6,12 +10,6 @@
  * @author vandna saxena, marius guerra, sam ordonez
  * @version 1.0
  */
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Iterator;
-
 public class Calendar
 {
     private final ArrayList<Integer>      years;
@@ -28,7 +26,7 @@ public class Calendar
      */
     public Calendar()
     {
-        years = new ArrayList<>();                  //Array (1910 -2025)
+        years = new ArrayList<>();
         for (int i = 1910; i <= 2025; i++)
         {
             years.add(i);
