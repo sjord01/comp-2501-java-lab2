@@ -37,29 +37,29 @@ public class Calendar
         months = new String[]{  "January", "February", "March",
                                 "April", "May", "June", "July",
                                 "August", "September", "October",
-                                "November", "December"};     // months - string list
+                                "November", "December"};
 
-        days = new ArrayList<>();           // key Int, v -> Date
-        for (int i = 1; i <= 30; i++)                   //years 1-30 int
+        days = new ArrayList<>();
+        for (int i = 1; i <= 30; i++)
         {
             days.add(i);
         }
 
         dates = new HashMap<>();
-        int key = 1;                                    //the key, 1 - 41760 in this example
+        int key = 1;
 
-        for (int year : years)                          //years, 1910 - 2025 in this example
+        for (int year : years)                                                      //enhanced for-loop; "for-each-loop"
         {
-            for (String month : months)                 //months, January - December in this example
+            for (int monthIndex = 0; monthIndex < months.length; monthIndex++)     // for-loop
             {
                 final Iterator<Integer> it;
-                it = days.iterator();                   //days, 1 - 30 in this example
+                it = days.iterator();
 
-                while (it.hasNext())                    //does the 'days' Arraylist, contain a next key?
+                while (it.hasNext())
                 {
-                    int day = it.next();                        //1 will be 2.. and so on           //day 2
-                    Date date = new Date(year, month, day);     //create a new Object expression of Date        //January 1, 1910
-                    dates.put(key, date);                       //add keys and value to the 'dates' Hashmap
+                    int day = it.next();
+                    Date date = new Date(year, months[monthIndex], day);
+                    dates.put(key, date);
                     key++;
                 }
             }

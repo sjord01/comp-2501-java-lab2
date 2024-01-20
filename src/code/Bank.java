@@ -26,11 +26,11 @@ public class Bank
     }
 
     /**
-     * Adds a new 'BankAccount' instance to the bank's accounts,
-     * using the account number as the key.
-     * @param newBankAccount a new Bank Account instance that has its own
+     * Adds a new pair to the bank's list of accounts;
+     * using the account number as the key, and an object expression of the BankAccount class as the value
+     * @param newBankAccount a new BankAccount instance that has its own
      *                       unique account number, account member name,
-     *                       and account monetray balance
+     *                       and account monetary balance
      */
     public void addAccount(BankAccount newBankAccount)
     {
