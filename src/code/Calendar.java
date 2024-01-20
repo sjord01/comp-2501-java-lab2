@@ -3,7 +3,7 @@
  * months, days, and years from 1910 to 2025;
  * assumption is that each month will have 30 days
  *
- * @author vandy, marius, sam ordonez
+ * @author vandna saxena, marius guerra, sam ordonez
  * @version 1.0
  */
 
@@ -46,7 +46,8 @@ public class Calendar
         }
 
         dates = new HashMap<>();
-        int key = 1;
+        int key;
+        key = 1;
 
         for (int year : years)                                                      //enhanced for-loop; "for-each-loop"
         {

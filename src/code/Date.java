@@ -1,7 +1,7 @@
 /**
  * A Date program that tells the month, day, and year of a specific date
  *
- * @author vandy, marius, sam ordonez
+ * @author vandna saxena, marius guerra, sam ordonez
  * @version 1.0
  */
 public class Date
@@ -19,9 +19,9 @@ public class Date
                 final String    month,
                 final int       day)
     {
-        this.year = year;
-        this.month = month;
-        this.day = day;
+        this.year   = year;
+        this.month  = month;
+        this.day    = day;
     }
 
     //Accessors

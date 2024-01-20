@@ -3,7 +3,7 @@
  * representing its own bank name, list of unique account numbers,
  * account member names, and account monetary balance
  *
- * @author vandy, marius, sam ordonez
+ * @author vandna saxena, marius guerra, sam ordonez
  * @version 1.0
  */
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class Bank
      *                       unique account number, account member name,
      *                       and account monetary balance
      */
-    public void addAccount(BankAccount newBankAccount)
+    public void addAccount(final BankAccount newBankAccount)
     {
         this.bankAccounts.put(newBankAccount.getAccountNumber(), newBankAccount);
     }
@@ -42,7 +42,7 @@ public class Bank
      * @param accountNumber the unique account number of a bank account
      * @return the unique account number of a bank account
      */
-    public BankAccount getAccount(String accountNumber)
+    public BankAccount getAccount(final String accountNumber)
     {
         return this.bankAccounts.get(accountNumber);
     }
@@ -51,7 +51,7 @@ public class Bank
      * Removes the unique account number of a bank account from the list group
      * @param accountNumber the unique account number of a bank account
      */
-    public void removeAccount(String accountNumber)
+    public void removeAccount(final String accountNumber)
     {
         this.bankAccounts.remove(accountNumber);
     }
@@ -77,7 +77,8 @@ public class Bank
         for (BankAccount account : this.bankAccounts.values())
         {
             //Disregard bank accounts with negative balance
-            if (account.getBalanceCdn() >=0) {
+            if (account.getBalanceCdn() >=0)
+            {
                 totalCdn += account.getBalanceCdn();
             }
         }
@@ -90,7 +91,8 @@ public class Bank
      * @param accountNumber the unique account number
      *                      where the money will be deposited
      */
-    public void depositTo(double amountCdn, String accountNumber)
+    public void depositTo(final double amountCdn,
+                          final String accountNumber)
     {
         this.bankAccounts.get(accountNumber).depositMoneyCad(amountCdn);
     }
